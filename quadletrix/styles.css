@@ -1,0 +1,81 @@
+body {
+  overflow-x: hidden;
+}
+
+.game {
+  height: 100%;
+  gap: 20px;
+  margin: 0;
+}
+
+main {
+  width: min(255px);
+}
+
+.grid {
+  width: 100%;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-rows: repeat(9, minmax(0, 1fr));
+}
+
+.block {
+  border-radius: 7px;
+}
+
+.teclado {
+  max-width: 660px;
+  gap: 5px;
+  margin: 25px 0;
+}
+
+.key {
+  height: 38px;
+}
+
+@media (max-width: 1260px) {
+
+  .game {
+    gap: 5px;
+  }
+  
+  .block {
+    border-radius: 3px;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+  }
+
+  main {
+    width: min(7%);
+    aspect-ratio: 3/2;
+  }
+
+  .teclado {
+    gap: 2px;
+  }
+}
+
+@media (max-width: 960px) {
+  
+  .header {
+    height: 20px;
+    border-radius: 12px;
+  }
+  
+  .game {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  main {
+    width: min(120px);
+    aspect-ratio: 5/9;
+  }
+  
+  .block {
+   width: 85%;
+  }
+  
+  .teclado {
+    max-width: 460px;
+    gap: 3px;
+  }
+}
