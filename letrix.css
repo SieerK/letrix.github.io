@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  transition: 0.3s;
+}
+
+body,
+.header,
+.modos,
+.modos a,
+main,
+.block,
+.key {
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  background: #4e6087;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+    sans-serif;
+  justify-content: space-between;
+}
+
+.header {
+  background: #7794d166;
+  height: 40px;
+  width: min(350px);
+  margin: 15px;
+  border-radius: 16px;
+  padding: 5px 16px;
+}
+
+.modos {
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.modos a {
+  text-decoration: none;
+  color: #000;
+  border-radius: 6px;
+  padding: 5px;
+  align-items: center;
+}
+
+.modos a:hover {
+  background-color: #7794d166;
+}
+
+main {
+  width: min(350px);
+  aspect-ratio: 9 / 11;
+  background-color: #7794d166;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 7px 10px 5px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-rows: repeat(6, minmax(0, 1fr));
+  gap: 5px;
+  width: 100%;
+  height: 100%;
+}
+
+.block {
+  aspect-ratio: 1 / 1;
+  background-color: #4e6087;
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  align-items: center;
+}
+
+.teclado {
+  width: 100%;
+  max-width: 520px;
+  margin: 35px 0;
+  display: grid;
+  gap: 10px;
+}
+
+.kb-row {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 8px;
+}
+
+.key {
+  height: 52px;
+  border: 0;
+  border-radius: 12px;
+  background-color: #7794d1aa;
+  color: #222;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+
+  align-items: center;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.key:active {
+  transform: translateY(2px);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.15);
+}
+
+.key-wide {
+  grid-column: span 2;
+  font-size: 12px;
+}
+
+@media (max-width: 420px) {
+  .key {
+    height: 44px;
+    font-size: 13px;
+    border-radius: 10px;
+  }
+  .kb-row {
+    gap: 6px;
+  }
+}
+
+.block.correct {
+  background: #3aa55d;
+  color: #fff;
+}
+.block.present {
+  background: #d4a017;
+  color: #fff;
+}
+.block.absent {
+  background: #5f5f5f;
+  color: #fff;
+}
+
+.key.correct {
+  background: #3aa55d;
+  color: #fff;
+}
+.key.present {
+  background: #d4a017;
+  color: #fff;
+}
+.key.absent {
+  background: #5f5f5f;
+  color: #fff;
+}
+
+.btn-restart {
+  margin-top: 12px;
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 12px;
+  background: #7794d1;
+  color: #1f2a44;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+}
+
+.btn-restart:active {
+  transform: translateY(2px);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.15);
+}
+
+/* Linha atual (mais clara) */
+.block.active-row {
+  background-color: #5b6fa0; /* um pouco mais claro que #4e6087 */
+}
+
+/* Célula selecionada (cursor) */
+.block.cursor {
+  outline: 3px solid rgb(105 129 183 / 90%);
+  outline-offset: -3px;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.18) inset;
+}
+
+/* Bloquear linhas que não são a atual */
+.block.locked {
+  opacity: 0.65;
+  pointer-events: none; /* não clica */
+}
+
+.grid {
+  perspective: 900px;
+}
+.block {
+  transform-style: preserve-3d;
+}
+
+@media (max-width: 760px) {
+  main {
+    width: min(300px);
+  }
+  .teclado {
+    gap: 2px;
+    max-width: 370px;
+  }
+  .key {
+    height: 40px;
+  }
+  .kb-row {
+    gap: 2px;
+  }
+  .header {
+    width: min(300px);
+    border-radius: 10px;
+  }
+  .modos a {
+    font-size: 14px;
+  }
+}
