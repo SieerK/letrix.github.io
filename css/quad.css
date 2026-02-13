@@ -25,7 +25,7 @@ main {
 .teclado {
   max-width: 660px;
   gap: 5px;
-  margin: 25px 0;
+  margin: 10px 0;
 }
 
 .key {
